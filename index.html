@@ -3,37 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Index</title>
+    <title>Login and Signup</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
         }
-        #dynamic-content {
-            font-size: 24px;
-            margin-top: 100px;
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        .form-container h2 {
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div id="dynamic-content">
-        <!-- JavaScript will update the content here -->
+    <div class="form-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" name="login-username" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="login-password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h2>Signup</h2>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="signup-username">Username</label>
+                <input type="text" id="signup-username" name="signup-username" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" name="signup-email" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="signup-password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Signup</button>
+            </div>
+        </form>
     </div>
 
     <script>
-        function updateDynamicContent() {
-            const dynamicContent = document.getElementById('dynamic-content');
-            const currentDate = new Date();
-            dynamicContent.textContent = `Current Date and Time: ${currentDate}`;
-        }
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
 
-        // Call the function when the page loads
-        updateDynamicContent();
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = event.target['login-username'].value;
+            const password = event.target['login-password'].value;
+            // Perform login validation here
+            console.log(`Login attempt - Username: ${username}, Password: ${password}`);
+        });
 
-        // Update the dynamic content every second
-        setInterval(updateDynamicContent, 1000);
+        signupForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = event.target['signup-username'].value;
+            const email = event.target['signup-email'].value;
+            const password = event.target['signup-password'].value;
+            // Perform signup validation here
+            console.log(`Signup attempt - Username: ${username}, Email: ${email}, Password: ${password}`);
+        });
     </script>
 </body>
 </html>
