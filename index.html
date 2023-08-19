@@ -1,2 +1,39 @@
-Hi Welcome to Karan Devops Project!!!!!
-DevOps is very handy and high in demand in the current market and IT Industry
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #dynamic-content {
+            font-size: 24px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dynamic-content">
+        <!-- JavaScript will update the content here -->
+    </div>
+
+    <script>
+        function updateDynamicContent() {
+            const dynamicContent = document.getElementById('dynamic-content');
+            const currentDate = new Date();
+            dynamicContent.textContent = `Current Date and Time: ${currentDate}`;
+        }
+
+        // Call the function when the page loads
+        updateDynamicContent();
+
+        // Update the dynamic content every second
+        setInterval(updateDynamicContent, 1000);
+    </script>
+</body>
+</html>
